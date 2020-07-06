@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.IntegrationMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.Integration">
+    <!--@mbg.generated-->
+    <!--@Table integration-->
+    <id column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="integration" jdbcType="DECIMAL" property="integration" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, integration
+  </sql>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.TicketOrdersMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.TicketOrders">
+    <!--@mbg.generated-->
+    <!--@Table ticket_orders-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="tickets_id" jdbcType="BIGINT" property="ticketsId" />
+    <result column="tickets_name" jdbcType="VARCHAR" property="ticketsName" />
+    <result column="starting_time" jdbcType="TIMESTAMP" property="startingTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="actually_paid" jdbcType="DECIMAL" property="actuallyPaid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, user_name, tickets_id, tickets_name, starting_time, end_time, actually_paid, 
+    `status`
+  </sql>
+</mapper>

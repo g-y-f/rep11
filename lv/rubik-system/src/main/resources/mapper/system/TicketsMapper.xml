@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.TicketsMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.Tickets">
+    <!--@mbg.generated-->
+    <!--@Table tickets-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="contentr" jdbcType="LONGVARCHAR" property="contentr" />
+    <result column="integration" jdbcType="DECIMAL" property="integration" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, contentr, integration
+  </sql>
+</mapper>

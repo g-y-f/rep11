@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.ExchangeHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.ExchangeHistory">
+    <!--@mbg.generated-->
+    <!--@Table exchange_history-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="commodity_id" jdbcType="BIGINT" property="commodityId" />
+    <result column="commodity_name" jdbcType="VARCHAR" property="commodityName" />
+    <result column="redemption_time" jdbcType="TIMESTAMP" property="redemptionTime" />
+    <result column="exchange_quantity" jdbcType="INTEGER" property="exchangeQuantity" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, commodity_id, commodity_name, redemption_time, exchange_quantity, user_id, user_name
+  </sql>
+</mapper>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增门票')" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-config-add" name="form-config-add">
+        <input th:value="${ticketsId}" hidden name="ticketsId">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">门票名称：</label>
+            <div class="col-sm-8">
+                <input id="ticketsName" name="ticketsName" class="form-control" th:value="${ticketsName}" type="text" required readonly>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">门票生效时间：</label>
+            <div class="col-sm-8">
+                <input id="startingTime" name="startingTime" class="form-control" type="text" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">门票失效时间：</label>
+            <div class="col-sm-8">
+                <input id="endTime" name="endTime" class="form-control" type="text" required >
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">价格：</label>
+            <div class="col-sm-8">
+                <input id="actuallyPaid" name="actuallyPaid" class="form-control" type="text" required>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<script type="text/javascript">
+    let prefix = ctx + "tourism/ticketOrders";
+
+    function submitHandler() {
+        $.operate.save(prefix + "/add", $('#form-config-add').serialize());
+    }
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#startingTime', //指定元素
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#endTime', //指定元素
+            type: 'datetime'
+        });
+    });
+</script>
+</body>
+</html>

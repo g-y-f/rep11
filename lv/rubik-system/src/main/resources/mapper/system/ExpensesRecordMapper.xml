@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.ExpensesRecordMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.ExpensesRecord">
+    <!--@mbg.generated-->
+    <!--@Table expenses_record-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="expenses_details" jdbcType="LONGVARCHAR" property="expensesDetails" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="integration" jdbcType="DECIMAL" property="integration" />
+    <result column="time_spent" jdbcType="TIMESTAMP" property="timeSpent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, user_name, `type`, expenses_details, price, integration, time_spent
+  </sql>
+</mapper>

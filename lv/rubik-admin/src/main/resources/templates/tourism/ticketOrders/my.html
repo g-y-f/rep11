@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('参数列表')" />
+</head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="config-form">
+                <div class="select-list">
+                    <ul>
+                        <li>
+                            用户名称：<input type="text" name="userName"/>
+                        </li>
+                        <li>
+                            门票编码：<input type="text" name="ticketsId"/>
+                        </li>
+                        <li>
+                            门票名称：<input type="text" name="ticketsName"/>
+                        </li>
+                        <li>
+                            状态：<input type="text" name="status">
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer" />
+<script th:inline="javascript">
+    let editFlag = [[${@permission.hasPermi('system:ticketOrders:edit')}]];
+    let removeFlag = [[${@permission.hasPermi('system:ticketOrders:remove')}]];
+    let datas = [[${@dict.getType('ticket_orders_status')}]];
+    let prefix = ctx + "tourism/ticketOrders";
+
+    $(function() {
+        let options = {
+            url: prefix + "/list",
+            createUrl: prefix + "/add",
+            updateUrl: prefix + "/edit/{id}",
+            removeUrl: prefix + "/remove",
+            sortName: "id",
+            sortOrder: "desc",
+            queryParams: queryParams,
+            modalName: "门票订单",
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field: 'id',
+                    title: '编码'
+                },
+                {
+                    field: 'userId',
+                    title: '用户编码',
+                    visible: false
+                },
+                {
+                    field: 'userName',
+                    title: '用户名称'
+                },
+                {
+                    field: 'ticketsId',
+                    title: '门票编码',
+                    visible: false
+                },
+                {
+                    field: 'ticketsName',
+                    title: '门票名称'
+                },
+                {
+                    field: 'startingTime',
+                    title: '门票生效时间'
+                },
+                {
+                    field: 'endTime',
+                    title: '门票失效时间'
+                },
+                {
+                    field: 'actuallyPaid',
+                    title: '实付'
+                },
+                {
+                    field: 'status',
+                    title: '状态',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(datas, value);
+                    }
+                }]
+        };
+        $.table.init(options);
+    });
+
+    function queryParams(params) {
+        let search = $.table.queryParams(params);
+        search.userId = [[${userId}]];
+        return search;
+    }
+</script>
+</body>
+</html>

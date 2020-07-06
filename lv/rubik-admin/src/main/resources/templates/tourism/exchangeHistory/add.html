@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增门票')" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-config-add" name="form-config-add">
+        <input name="commodityId" th:value="${commodityId}" hidden="hidden">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">商品名称：</label>
+            <div class="col-sm-8">
+                <input id="commodityName" name="commodityName" th:value="${commodityName}" class="form-control" type="text" required readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">兑换数量：</label>
+            <div class="col-sm-8">
+                <input id="exchangeQuantity" name="exchangeQuantity" class="form-control" type="number" required>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<script type="text/javascript">
+    let prefix = ctx + "tourism/exchangeHistory";
+
+    function submitHandler() {
+        let data = $('#form-config-add').serializeArray();
+        data.push({"name": "expensesDetails", "value": $("#expensesDetails").val()});
+        $.operate.save(prefix + "/add", data);
+    }
+
+    layui.use('laydate', function(){
+        let laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#timeSpent', //指定元素
+            type: 'datetime'
+        });
+    });
+</script>
+</body>
+</html>

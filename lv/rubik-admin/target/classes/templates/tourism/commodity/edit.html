@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增门票')" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-config-add" name="form-config-add" th:object="${commodity}">
+        <input name="id" hidden="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">商品名称：</label>
+            <div class="col-sm-8">
+                <input id="name" name="name" class="form-control" type="text" required th:field="*{name}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">介绍：</label>
+            <div class="col-sm-8">
+                <textarea id="introduction" name="introduction" class="form-control" th:field="*{introduction}" required>
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">兑换所需积分：</label>
+            <div class="col-sm-8">
+                <input id="integration" name="integration" class="form-control" type="text" th:field="*{integration}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">数量：</label>
+            <div class="col-sm-8">
+                <input id="qty" name="qty" class="form-control" type="number" th:field="*{qty}" required>
+            </div>
+        </div>
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<script type="text/javascript">
+    let prefix = ctx + "tourism/commodity";
+
+    function submitHandler() {
+        let data = $('#form-config-add').serializeArray();
+        data.push({"name": "integration", "value": $("#expensesDetails").val()});
+        $.operate.save(prefix + "/add", data);
+    }
+
+</script>
+</body>
+</html>

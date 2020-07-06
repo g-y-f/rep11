@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fjyms.iml" filepath="$PROJECT_DIR$/fjyms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rubik-admin/rubik-admin.iml" filepath="$PROJECT_DIR$/rubik-admin/rubik-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rubik-common/rubik-common.iml" filepath="$PROJECT_DIR$/rubik-common/rubik-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rubik-framework/rubik-framework.iml" filepath="$PROJECT_DIR$/rubik-framework/rubik-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rubik-system/rubik-system.iml" filepath="$PROJECT_DIR$/rubik-system/rubik-system.iml" />
+    </modules>
+  </component>
+</project>

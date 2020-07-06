@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.CommodityMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.Commodity">
+    <!--@mbg.generated-->
+    <!--@Table commodity-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+    <result column="integration" jdbcType="DECIMAL" property="integration" />
+    <result column="qty" jdbcType="INTEGER" property="qty" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, introduction, integration, qty
+  </sql>
+</mapper>

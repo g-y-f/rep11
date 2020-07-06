@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rubik.system.mapper.GuidebookUserMapper">
+  <resultMap id="BaseResultMap" type="com.rubik.system.domain.GuidebookUser">
+    <!--@mbg.generated-->
+    <!--@Table guidebook_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="touristGuide_id" jdbcType="BIGINT" property="touristguideId" />
+    <result column="touristGuide_name" jdbcType="VARCHAR" property="touristguideName" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="reviews" jdbcType="VARCHAR" property="reviews" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, user_name, touristGuide_id, touristGuide_name, score, reviews
+  </sql>
+</mapper>
